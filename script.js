@@ -33,13 +33,19 @@ async function getMeaning(word) {
       mainDiv.innerHTML = "";
       const meanings = meaningResponse[0].meanings
       meanings.forEach((meaning) => {
+        const posDiv = document.createElement("div")
+        posDiv.innerText = meaning.partOfSpeech
+        console.log(posDiv)
+        mainDiv.appendChild(posDiv)
         const ul = document.createElement("ul")
-      meaning.definitions.forEach(d =>{
-        const liDefinition = document.createElement("li")
-        liDefinition.innerText = d.definition
-        ul.appendChild(liDefinition)
-        // console.log(d.definition)
-      })
+        meaning.definitions.forEach(d => {
+          const liDefinition = document.createElement("li")
+          liDefinition.innerText = d.definition
+          ul.appendChild(liDefinition)
+          // console.log(d.definition)
+        })
+
+
         mainDiv.appendChild(ul)
       })
     } else {
@@ -70,3 +76,4 @@ form.addEventListener("submit", handleSubmit)
 // console.log("hello", input)
 
 // https://codesandbox.io/s/angry-sun-cmdb3h?file=/index.html
+// https://codesandbox.io/s/amazing-dream-ui1wiz?file=/src/index.js
