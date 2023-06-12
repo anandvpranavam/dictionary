@@ -31,6 +31,42 @@ function displayData(meaningResponse){
   wordDiv.id="WordDiv";
   wordDiv.innerText= "Word : "+firstElement.word
   mainDiv.appendChild(wordDiv)
+
+  if(firstElement.phonetics){
+    firstElement.phonetics.forEach((ph)=>{
+      const textDiv = document.createElement("div")
+      textDiv.innerText = ph.text
+      mainDiv.appendChild(textDiv)
+      const audio = document.createElement("audio")
+      audio.setAttribute("controls", "")
+      const source = document.createElement("source")
+      source.id = "audio"
+      source.src = ph.audio
+      source.type = "audio/mpeg"
+      audio.appendChild(source)
+      mainDiv.appendChild(audio)
+    })
+  }
+
+
+
+
+
+  // if(firstElement.phonetics){
+  //   firstElement.phonetics.forEach((ph)=>{
+  //     const template = document.getElementById("audioTemplate")
+  //     const clone = template.content.cloneNode(true)
+  //     const phonetic = clone.querySelector("#phonetic")
+  //     phonetic.innerText = ph.text
+  //     const audio = clone.querySelector("#audio")
+  //     audio.src = ph.audio
+  //     mainDiv.appendChild(clone)
+  //   })
+  // }
+
+
+
+
   const meanings = document.createElement("div")
   meanings.id="Meanings"
   meanings.innerText = "Meanings"
