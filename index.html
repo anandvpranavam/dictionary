@@ -11,20 +11,42 @@
 </head>
 
 <body>
+    <div id="container">
     <h1>Anand's Personal Dictionary</h1>
     <form id="myForm">
         <input id="input" placeholder="Type here" />
         <button>Get meaning</button>
     </form>
     <div id="loading"></div>
-    <div id="mainDiv"></div>
+    <div id="app"></div>
+
+    <template id="main">
+        <div id="mainDiv">
+            <div id="WordDiv"></div>
+            <div id="phonetic"></div>
+            <div id="Meanings"><h2>Meanings</h2></div>
+        <hr/>
+        </div>
+    </template>
+
+    <template id="posTemplate">
+        <div class="pos">
+            <h3 class="posHead margin">parts of speech: verb</h3>
+            <h3 class="Definitions margin">Definitions</h3>
+            <div class="defContainer"><ul class="definitionsData"></ul></div>
+            <div class="Synonyms margin"></div>
+        </div>
+    </template>
+
+
     <template id="audioTemplate">
         <div id="phonetic"></div>
         <audio controls>
-            <source id="audio" src="horse.mp3" type="audio/mpeg">
+            <source id="audio" src="" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </template>
+</div>
 </body>
 
 </html>
